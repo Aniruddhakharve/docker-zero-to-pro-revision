@@ -1,0 +1,1 @@
+This lab demonstrates small Dockerfile fundamentals.

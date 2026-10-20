@@ -1,0 +1,10 @@
+services:
+  web:
+    build:
+      context: .
+    image: d3334-compose-basics-web:1.0
+    ports:
+      - "${BASICS_HOST_PORT:-18301}:80"
+    restart: unless-stopped
+    labels:
+      lab.topic: "compose-basics"

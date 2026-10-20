@@ -1,0 +1,1 @@
+ADD works here, but COPY is preferred for local files.
