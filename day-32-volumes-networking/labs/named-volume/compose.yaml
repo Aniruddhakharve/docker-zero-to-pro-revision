@@ -1,0 +1,9 @@
+services:
+  writer:
+    image: alpine:3.20
+    command: ["sh", "-c", "date >> /data/persist.txt && tail -f /dev/null"]
+    volumes:
+      - d32_named_data:/data
+
+volumes:
+  d32_named_data:

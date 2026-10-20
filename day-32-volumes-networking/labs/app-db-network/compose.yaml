@@ -1,0 +1,24 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: appdb
+      POSTGRES_USER: appuser
+      POSTGRES_PASSWORD: apppass_local_only
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U appuser -d appdb"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    volumes:
+      - d32_appdb_data:/var/lib/postgresql/data
+
+  app:
+    image: postgres:16-alpine
+    depends_on:
+      db:
+        condition: service_healthy
+    command: ["sh", "-c", "PGPASSWORD=apppass_local_only psql -h db -U appuser -d appdb -c 'select 1;' && tail -f /dev/null"]
+
+volumes:
+  d32_appdb_data:

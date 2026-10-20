@@ -1,0 +1,31 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+.pytest_cache/
+
+# Node/npm
+node_modules/
+
+# Logs and temp
+*.log
+*.tmp
+*.swp
+.DS_Store
+
+# Build artifacts
+dist/
+build/
+*.tar
+*.tar.gz
+
+# Docker local overrides
+compose.override.yml

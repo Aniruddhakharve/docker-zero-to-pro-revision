@@ -1,0 +1,5 @@
+services:
+  app:
+    build:
+      context: .
+    image: ${APP_IMAGE:-d36-flask-mysql}:${IMAGE_TAG:-local}
